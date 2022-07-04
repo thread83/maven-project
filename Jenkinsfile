@@ -24,7 +24,7 @@ pipeline {
            }
            stage ('Deploy to prod') {
              steps {
-               sh "cp **/target/*.war /tmp/deploy"
+               sh "cp **/target/*.war /tmp/prod"
              }     
            }
          }
