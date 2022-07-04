@@ -19,12 +19,12 @@ pipeline {
          parallel{
            stage ('Deploy to Staging'){
              steps {
-               sh "cp **/target/*.war /tmp/webapps"
+               sh "cp **/target/*.war /tmp/staging"
              }
            }
            stage ('Deploy to prod') {
              steps {
-               sh "cp **/target/*.war /tmp/webapps"
+               sh "cp **/target/*.war /tmp/deploy"
              }     
            }
          }
