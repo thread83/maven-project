@@ -24,7 +24,9 @@ pipeline {
            }
            stage ('Deploy to prod') {
              steps {
-               input message:'Approve copy to Prod'
+               timeout(time:5, unit:'DAYS'){
+                  input message:'Approve copy to Prod'
+               }
                sh "cp **/target/*.war /tmp/prod"
              }     
            }
