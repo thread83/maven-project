@@ -19,7 +19,7 @@ pipeline {
          parallel{
            stage ('Deploy to Staging'){
              steps {
-               sh "cp **/target/*.war /tmp/staging"
+               sh "cp **/target/*.war /home/thread/tomcat/webapps"
              }
            }
            stage ('Deploy to prod') {
@@ -27,7 +27,7 @@ pipeline {
                timeout(time:5, unit:'DAYS'){
                   input message:'Approve copy to Prod'
                }
-               sh "cp **/target/*.war /tmp/prod"
+               sh "cp **/target/*.war /home/thread/tomcat-prod/webapps"
              }     
            }
          }
